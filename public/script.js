@@ -15,18 +15,21 @@ new Vue({
       this.loading = true;
       // Distruct the results objects
       const {
+        code = "",
         response = {},
         response: { results = {} }
       } = await fetch(
         `/api/v1/search?q=${this.searchQuery}&page=` + this.page + `&search=${this.searchFilter}`
       ).then(x => x.json());
 
+      if (code !== "SUCCESS") return alert("Make sure you write sometext!");
       // total works bookss.
       this.searchList = results.work || [];
 
-      // whenever total_results =0 then this means this is the last page.
+      // whenever total_results= 0 then this means this is the last page.
       this.total_results = parseInt(response["total-results"]);
-      console.log(this.searchFilter);
+
+      // Hide preloader
       this.loading = false;
       return true;
     },

@@ -9,7 +9,7 @@ module.exports = class SearchService {
 
   search(params) {
     return new Promise((resolve, reject) => {
-      let filterFilds = `&search[field]=${params.search}`;
+      let filterFields = `&search[field]=${params.search}`;
       delete params.search;
 
       // falten query params into query string.
@@ -18,7 +18,7 @@ module.exports = class SearchService {
         config.goodreads.base_url +
         config.goodreads.search_resource +
         queryString +
-        filterFilds +
+        filterFields +
         "&per_page=10&key=" +
         config.goodreads.API_KEY;
       fetch(requestUrl, {

@@ -1,6 +1,9 @@
 const expressValidation = require("express-validation");
 module.exports = (err, req, res, next) => {
   const error = err;
+  err.response = {
+    results: {}
+  };
   if (error instanceof expressValidation.ValidationError) {
     return res.status(err.statusCode).json(err);
   }
@@ -13,10 +16,7 @@ module.exports = (err, req, res, next) => {
   if (!error.status && !error.statusCode) {
     error.status = 500;
   }
-  const errorMessage =
-    error.name !== "StatusCodeError"
-      ? error.message
-      : error.error.error.message;
+  const errorMessage = error.name !== "StatusCodeError" ? error.message : error.error.error.message;
   const errorResponse = {
     success: false,
     message: error.status !== 500 ? errorMessage : "Internal server error",

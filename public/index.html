@@ -4,7 +4,7 @@
     <title>GoodReads Book Engine</title>
     <link href="index.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js   "></script>
+    <script src="/vue/vue.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
   </head>
@@ -23,7 +23,7 @@
           placeholder="Search for websites.."
           title="Type in a website"
           spellcheck="true"
-        /><img class="icon" src="https://image.ibb.co/f3OYEz/search_glass.png" />
+        /><img class="icon" v-on:click="{handelSearchInput}" src="https://image.ibb.co/f3OYEz/search_glass.png" />
         <div>
           <input type="radio" v-model="searchFilter" value="all" name="search[field]" id="search_field" />
           all
@@ -31,9 +31,9 @@
           <input type="radio" v-model="searchFilter" value="author" name="search[field]" id="search_field_author" />
           author
           <input type="radio" v-model="searchFilter" value="genre" name="search[field]" id="search_field_genre" /> genre
-          || Sorty
+          || Sort
           <select v-on:change="handelSort" v-model="sortBy">
-            <option value=""> NON</option>
+            <option value=""> --</option>
             <option value="average_rating"> Avg. Rating</option>
             <option value="ratings_count"> Rating Count</option>
           </select>
@@ -64,7 +64,7 @@
         <a v-if="page>1" class="add" v-on:click="handelPreivousePage" href="#">Previouse</a>
       </div>
       <div class="add">
-        <a class="addweb">In this task, I have cover Search, filter and sort and pagination.</a>
+        <a class="addweb">In this task, I have covered Search, Filter, Sort, and Pagination.</a>
       </div>
     </div>
     <script src="script.js"></script>

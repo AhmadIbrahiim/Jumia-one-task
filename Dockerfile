@@ -10,6 +10,9 @@ COPY .  .
 # Inform Docker that the container is listening on the specified port at runtime.
 EXPOSE 8088
 
+# Install pacakges before build the image
+RUN npm install
+
 # Run the specified command within the container.
 CMD [ "npm", "start" ]
 
