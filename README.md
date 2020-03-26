@@ -1,3 +1,8 @@
+## What is done?
+
+![Jumia one task progress.](https://github.com/AhmadIbrahiim/Jumia-one-task/blob/master/public/demo.gif?raw=true)
+
+
 ## Jumia One - Book Service
 
 Hello, I'm is a micro service in NodeJS.
