@@ -1,0 +1,8 @@
+{
+  "serverPort": 8088,
+  "goodreads": {
+    "base_url": "https://www.goodreads.com",
+    "search_resource": "/search/index.xml?",
+    "API_KEY": "bZFY4Rc5TZpBEc89fv7XKA"
+  }
+}
